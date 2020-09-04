@@ -35,10 +35,7 @@ Things you may want to cover:
 | first_name   | string     | null: false                    |
 | last_name_k  | string     | null: false                    |
 | first_name_k | string     | null: false                    |
-| year_bir     | string     | null: false                    |
-| year_bir     | integer    | null: false                    |
-| month_bir    | integer    | null: false                    |
-| day_bir      | integer    | null: false                    |
+| birthday     | date       | null: false                    |
 
 ### Association
 
