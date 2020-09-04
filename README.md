@@ -26,22 +26,11 @@ Things you may want to cover:
 # テーブル設計
 
 ## users テーブル
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| nickname | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
-
-### Association
-
-- has_many :items
-- has_many :comments
-- has_one :users_info
-- has_one :address
-
-## users_info テーブル
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
+| nickname     | string     | null: false                    |
+| email        | string     | null: false                    |
+| password     | string     | null: false                    |
 | last_name    | string     | null: false                    |
 | first_name   | string     | null: false                    |
 | last_name_k  | string     | null: false                    |
@@ -50,50 +39,43 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :user
+- has_many :items
+
 
 ## items テーブル
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| image   | string     | null: false                    |
-| title   | string     | null: false                    |
-| text    | string     | null: false                    |
-| price   | intger     | null: false                    |
-| user    | references | null: false, foreign_key: true |
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| title     | string     | null: false                    |
+| text      | string     | null: false                    |
+| genre     | string     | null: false                    |
+| status    | string     | null: false                    |
+| bear      | string     | null: false                    |
+| price     | integer    | null: false                    |
+| ship_from | string     | null: false                    |
+| days      | string     | null: false                    |
+| user      | references | null: false, foreign_key: true |
+
 
 ### Association
 
 - belongs_to :user
-- has_many :comments
 - has_one :purchase
 
-## comments テーブル
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| text    | string     | null: false                    |
-| user    | references | null: false, foreign_key: true |
-| item    | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- belongs_to :item
 
 ## addresses テーブル
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
-| postal_code    | integer    | null: false                    |
+| postal_code    | string     | null: false                    |
 | prefecture     | string     | null: false                    |
 | city           | string     | null: false                    |
 | block_number   | string     | null: false                    |
 | apartment_name | string     |                                |
-| phone_number   | integer    | null: false                    |
+| phone_number   | string     | null: false                    |
 | user           | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :address
 - has_one :purchase
 
 ## purchase テーブル
