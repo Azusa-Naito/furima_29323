@@ -40,6 +40,7 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
+- has_many :purchases
 
 
 ## items テーブル
@@ -71,11 +72,11 @@ Things you may want to cover:
 | block_number   | string     | null: false                    |
 | apartment_name | string     |                                |
 | phone_number   | string     | null: false                    |
-| user           | references | null: false, foreign_key: true |
+| purchase       | references | null: false, foreign_key :true |
 
 ### Association
 
-- has_one :purchase
+- belongs_to :purchase
 
 
 ## purchase テーブル
@@ -88,3 +89,4 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :item
+- has_one :address
