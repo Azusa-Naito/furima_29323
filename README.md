@@ -43,17 +43,17 @@ Things you may want to cover:
 
 
 ## items テーブル
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| title     | string     | null: false                    |
-| text      | string     | null: false                    |
-| genre     | string     | null: false                    |
-| status    | string     | null: false                    |
-| bear      | string     | null: false                    |
-| price     | integer    | null: false                    |
-| ship_from | string     | null: false                    |
-| days      | string     | null: false                    |
-| user      | references | null: false, foreign_key: true |
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| title        | string     | null: false                    |
+| text         | text       | null: false                    |
+| genre_id     | integer    | null: false                    |
+| status_id    | integer    | null: false                    |
+| bear_id      | integer    | null: false                    |
+| price        | integer    | null: false                    |
+| ship_from_id | integer    | null: false                    |
+| days_id      | integer    | null: false                    |
+| user         | references | null: false, foreign_key: true |
 
 
 ### Association
@@ -66,7 +66,7 @@ Things you may want to cover:
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | postal_code    | string     | null: false                    |
-| prefecture     | string     | null: false                    |
+| prefecture     | integer    | null: false                    |
 | city           | string     | null: false                    |
 | block_number   | string     | null: false                    |
 | apartment_name | string     |                                |
@@ -75,8 +75,8 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :user
 - has_one :purchase
+
 
 ## purchase テーブル
 | Column | Type       | Options                        |
