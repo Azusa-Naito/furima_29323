@@ -5,8 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :nickname, :birthday,  presence: true
 
-  
-  # ボツ VALID_PASSWORD_REGEX = /\A(?=.*?/[a-z\d]{6,}/i)/
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])\w{6,}\z/
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: "は半角英数字6文字以上で入力してください"}
   
@@ -21,11 +19,4 @@ class User < ApplicationRecord
             format: { with: VALID_K_REGEX,
             message: "は全角カタカナのみで入力してください"}
 
-
-
-  # validates :name, presence: true,
-  #               format: {
-  #                 with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
-  #                 message: "全角カタカナのみで入力して下さい"
-  #               }
 end
