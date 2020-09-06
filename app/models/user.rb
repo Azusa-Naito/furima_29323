@@ -1,0 +1,31 @@
+class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+  validates :nickname, :birthday,  presence: true
+
+  
+  # ボツ VALID_PASSWORD_REGEX = /\A(?=.*?/[a-z\d]{6,}/i)/
+  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])\w{6,}\z/
+  validates :password, format: { with: VALID_PASSWORD_REGEX, message: "は半角英数字6文字以上で入力してください"}
+  
+  VALID_ZENKAKU_REGEX = /\A[ぁ-んァ-ン一-龥]+\z/
+  validates :last_name, :first_name, presence: true,
+  
+  format: { with: VALID_ZENKAKU_REGEX, message: 'は全角文字を使用してください' }
+
+
+  VALID_K_REGEX = /\A[ァ-ヶー－]+\z/
+  validates :last_name_k, :first_name_k, presence: true,
+            format: { with: VALID_K_REGEX,
+            message: "は全角カタカナのみで入力してください"}
+
+
+
+  # validates :name, presence: true,
+  #               format: {
+  #                 with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
+  #                 message: "全角カタカナのみで入力して下さい"
+  #               }
+end
