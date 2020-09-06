@@ -11,7 +11,7 @@ class User < ApplicationRecord
   VALID_ZENKAKU_REGEX = /\A[ぁ-んァ-ン一-龥]+\z/
   validates :last_name, :first_name, presence: true,
   
-  format: { with: VALID_ZENKAKU_REGEX, message: 'は全角文字を使用してください' }
+  format: { with: VALID_ZENKAKU_REGEX, message: "は全角文字を使用してください" }
 
 
   VALID_K_REGEX = /\A[ァ-ヶー－]+\z/
