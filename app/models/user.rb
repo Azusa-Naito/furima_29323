@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_many :items
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :nickname, :birthday,  presence: true
@@ -15,8 +17,6 @@ class User < ApplicationRecord
 
 
   VALID_K_REGEX = /\A[ァ-ヶー－]+\z/
-  validates :last_name_k, :first_name_k, presence: true,
-            format: { with: VALID_K_REGEX,
-            message: "は全角カタカナのみで入力してください"}
+  validates :last_name_k, :first_name_k, presence: true, format: { with: VALID_K_REGEX, message: "は全角カタカナのみで入力してください"}
 
 end
