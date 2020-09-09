@@ -52,7 +52,7 @@ Things you may want to cover:
 | status_id    | integer    | null: false                    |
 | bear_id      | integer    | null: false                    |
 | price        | integer    | null: false                    |
-| ship_from_id | integer    | null: false                    |
+| from_id      | integer    | null: false                    |
 | days_id      | integer    | null: false                    |
 | user         | references | null: false, foreign_key: true |
 
