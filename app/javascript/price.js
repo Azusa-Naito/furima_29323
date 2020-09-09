@@ -7,8 +7,8 @@ function price() {
   inputPrice.addEventListener( 'input', () => {
     const inputValue = inputPrice.value;
     if ( inputValue >=300 && inputValue <= 9999999 ) {
-    displayedFee.textContent = Math.round(inputValue * 0.1);
-    displayedProfit.textContent = Math.round(inputValue * 0.9);
+    displayedFee.textContent = Math.floor(inputValue * 0.1);
+    displayedProfit.textContent = inputValue - Math.floor(inputValue * 0.1);
     } else {
       displayedFee.textContent = " -- ";
       displayedProfit.textContent = " -- ";
