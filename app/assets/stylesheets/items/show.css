@@ -204,3 +204,11 @@
   font-weight: bold;
   font-size: 23px;
 }
+
+.soldout-btn {
+  background-color: #ea352d;
+  color: #f8f8f8;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 20px;
+}
