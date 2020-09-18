@@ -1,12 +1,12 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   def index
-    @item = Item.find_by(params[:item_id])
+    @item = Item.find(params[:item_id])
     @order = OrderAddress.new
   end
 
   def create
-    @item = Item.find_by(params[:item_id])
+    @item = Item.find(params[:item_id])
     @order = OrderAddress.new(order_params)
     if @order.valid?
       pay_item
