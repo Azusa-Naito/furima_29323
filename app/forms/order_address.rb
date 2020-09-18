@@ -3,6 +3,7 @@ class OrderAddress
   attr_accessor :token, :postal_code, :from_id, :city, :block_number, :apartment_name, :phone_number, :item_id, :user_id
 
   with_options presence: true do
+    validates :token
     validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'を入力してください' }
     validates :from_id, numericality: { other_than: 0 }
     validates :block_number
