@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :@item = Item.find(params[:item_id])
+  before_action :find_item
   def index
     @order = OrderAddress.new
   end
@@ -29,5 +29,9 @@ class OrdersController < ApplicationController
       card: order_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def find_item
+    @item = Item.find(params[:item_id])
   end
 end
