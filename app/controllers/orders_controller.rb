@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :find_item
+  before_action :sold_out
   def index
     @order = OrderAddress.new
   end
@@ -33,5 +34,11 @@ class OrdersController < ApplicationController
 
   def find_item
     @item = Item.find(params[:item_id])
+  end
+
+  def sold_out
+    if Order.exists?(item_id: @item.id)
+      redirect_to root_path
+    end
   end
 end
