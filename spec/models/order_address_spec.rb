@@ -10,7 +10,7 @@ RSpec.describe Order, type: :model do
       item.save
       @order = FactoryBot.build(:order_address, item_id: item.id, user_id: buy_user.id)
     end
-    
+
     context '購入情報が保存できるとき' do
       it 'すべての値が正しく入力されていれば保存できる' do
         expect(@order).to be_valid
@@ -28,15 +28,15 @@ RSpec.describe Order, type: :model do
         expect(@order.errors.full_messages).to include("Postal code can't be blank")
       end
       it 'postal_codeが半角のハイフンを含んだ正しい形式でないと保存できない' do
-        @order.postal_code = 1234567
+        @order.postal_code = 1_234_567
         @order.valid?
-        expect(@order.errors.full_messages).to include("Postal code を入力してください")
+        expect(@order.errors.full_messages).to include('Postal code を入力してください')
       end
 
       it 'from_idが0では保存できない' do
         @order.from_id = 0
         @order.valid?
-        expect(@order.errors.full_messages).to include("From must be other than 0")
+        expect(@order.errors.full_messages).to include('From must be other than 0')
       end
 
       it 'cityが空では保存できない' do
@@ -57,9 +57,9 @@ RSpec.describe Order, type: :model do
         expect(@order.errors.full_messages).to include("Phone number can't be blank")
       end
       it 'phone_numberが正しい形式でないと保存できない' do
-        @order.phone_number = 123-4567-89
+        @order.phone_number = 123 - 4567 - 89
         @order.valid?
-        expect(@order.errors.full_messages).to include("Phone number は10桁もしくは11桁の半角数字で入力してください")
+        expect(@order.errors.full_messages).to include('Phone number は10桁もしくは11桁の半角数字で入力してください')
       end
     end
   end
