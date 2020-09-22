@@ -4,7 +4,7 @@ class OrderAddress
 
   with_options presence: true do
     validates :token
-    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'を入力してください' }
+    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'を正しく入力してください' }
     validates :from_id, numericality: { other_than: 0 }
     validates :block_number
     validates :city

@@ -26,112 +26,62 @@ RSpec.describe Item, type: :model do
       it 'ユーザーが紐づいていなければ出品できない' do
         @item.user_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include('User must exist')
+        expect(@item.errors.full_messages).to include('Userを入力してください')
       end
       it 'imageが空では出品できない' do
         @item.image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Image can't be blank")
+        expect(@item.errors.full_messages).to include('画像を入力してください')
       end
       it 'titleが空では出品できない' do
         @item.title = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Title can't be blank")
+        expect(@item.errors.full_messages).to include('タイトルを入力してください')
       end
       it 'textが空では出品できない' do
         @item.text = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Text can't be blank")
-      end
-      it 'genre_idが空では出品できない' do
-        @item.genre_id = nil
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Genre can't be blank")
+        expect(@item.errors.full_messages).to include('テキストを入力してください')
       end
       it 'genre_idが0では出品できない' do
         @item.genre_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('Genre must be other than 0')
-      end
-      it 'genre_idが11以上では出品できない' do
-        @item.genre_id = 11
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Genre can't be blank")
-      end
-      it 'status_idが空では出品できない' do
-        @item.status_id = nil
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Status can't be blank")
+        expect(@item.errors.full_messages).to include('カテゴリーを選択してください')
       end
       it 'status_idが0では出品できない' do
         @item.status_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('Status must be other than 0')
-      end
-      it 'status_idが7以上では出品できない' do
-        @item.status_id = 7
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Status can't be blank")
-      end
-      it 'bear_idが空では出品できない' do
-        @item.bear_id = nil
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Bear can't be blank")
+        expect(@item.errors.full_messages).to include('商品の状態を選択してください')
       end
       it 'bear_idが0では出品できない' do
         @item.bear_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('Bear must be other than 0')
-      end
-      it 'bear_idが3以上では出品できない' do
-        @item.bear_id = 3
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Bear can't be blank")
-      end
-      it 'from_idが空では出品できない' do
-        @item.from_id = nil
-        @item.valid?
-        expect(@item.errors.full_messages).to include("From can't be blank")
+        expect(@item.errors.full_messages).to include('配送料の負担を選択してください')
       end
       it 'from_idが0では出品できない' do
         @item.from_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('From must be other than 0')
-      end
-      it 'from_idが48以上では出品できない' do
-        @item.from_id = 48
-        @item.valid?
-        expect(@item.errors.full_messages).to include("From can't be blank")
-      end
-      it 'day_idが空では出品できない' do
-        @item.day_id = nil
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Day can't be blank")
+        expect(@item.errors.full_messages).to include('都道府県を選択してください')
       end
       it 'day_idが0では出品できない' do
         @item.day_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('Day must be other than 0')
-      end
-      it 'day_idが4以上では出品できない' do
-        @item.day_id = 4
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Day can't be blank")
+        expect(@item.errors.full_messages).to include('配送目安日数を選択してください')
       end
       it 'priceが空では出品できない' do
         @item.price = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price can't be blank")
+        expect(@item.errors.full_messages).to include('価格を入力してください')
       end
       it 'priceが299以下以上では出品できない' do
         @item.price = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
+        expect(@item.errors.full_messages).to include('価格は300以上の値にしてください')
       end
       it 'priceが10000000以上では出品できない' do
         @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
+        expect(@item.errors.full_messages).to include('価格は9999999以下の値にしてください')
       end
     end
   end
