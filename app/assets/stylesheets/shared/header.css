@@ -27,18 +27,21 @@
   margin-bottom: 5px;
 }
 
-.search-form>.input-box {
-  width: 100%;
+.input-box {
+  width: 80%;
   height: 5vh;
   padding-left: 10px;
 }
 
 .search-button {
-  width: 5vh;
+  height: 40px;
+  width: 40px;
   border: 0;
   cursor: pointer;
   background-color: #3ccace;
+  margin-left: 5px;
   padding: 8px;
+  border-radius: 5px;
 }
 
 .search-icon {
@@ -57,7 +60,14 @@
 .lists-left {
   display: flex;
   min-width: 200px;
+}
 
+.nav-up{
+  display: flex;
+}
+
+.nav-down{
+  float: left;
 }
 
 .category-list {

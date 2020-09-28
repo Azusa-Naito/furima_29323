@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :set_item, only: [:show, :edit, :update]
+  before_action :search_product, only: [:index, :show, :search]
 
   def index
     @items = Item.includes(:user).order('created_at DESC')
@@ -59,5 +60,10 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def search_product
+    @p = Item.ransack(params[:q])  # 検索オブジェクトを生成
+    @results = @p.result
   end
 end

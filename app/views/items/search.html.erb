@@ -1,5 +1,13 @@
 <%= render "shared/header" %>
-<ul class='item-lists'>
-  <%= render "shared/item" %>
-</ul>
+<% if @results.present? %>
+  <% @results.each do |item| %>
+    <ul class='item-lists'>
+      <%= render partial: "shared/item", locals: {item: item} %>
+    </ul>
+  <% end %>
+<% else %>
+  <ul class='item-lists'>
+    <p>一致する商品がありません。条件を変えて検索してみよう！</p>
+  </ul>
+<% end %>
 <%= render "shared/footer" %>

@@ -3,18 +3,56 @@
   <div class='search-bar-contents'>
     <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
 
-    <%= form_with(url: search_items_path, local: true, method: :get, class: "search-form") do |form| %>
-      <%= form.text_field :keyword, placeholder: "キーワードから探す", class: "input-box" %>
-      <button class="search-button">
-        <%= image_tag("search.png", class:"search-icon")  %>
-      </button>
-    <% end %>
-  </div>
+    <%# <%= form_with(url: search_items_path, local: true, method: :get, class: "search-form") do |form| %>
+      <%# <%= form.text_field :keyword, placeholder: "キーワードから探す", class: "input-box" %> 
+      <%# <button class="search-button"> %>
+        <%# <%= image_tag("search.png", class:"search-icon")  %> 
+      <%# </button> %>
+    <%# <% end %> 
+  </div> 
+
   <div class='nav'>
     <ul class='lists-left'>
-      <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
-      <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
+      <%# <li><%= link_to 'カテゴリー', "#", class: "category-list" </li> %>
+      <%# ---------------------------------- %>
+
+      <%= search_form_for @p, url: search_items_path do |f| %>
+        <div class = 'nav-up'>
+          <%= f.text_field :title_cont, placeholder: "キーワードから探す", class: "input-box" %>
+          <button class="search-button">
+            <%= image_tag("search.png", class:"search-icon")  %>
+          </button>
+        </div>
+        <div class='nav-down'>
+          <%= f.label :genre_id_eq, 'カテゴリー' %>
+          <%= f.collection_select :genre_id_eq, Genre.all, :id, :name,  include_blank: '指定なし' %>
+
+          <%= f.label :status_id_eq, '商品の状態' %>
+          <%= f.collection_select :status_id_eq, Status.all, :id, :name,  include_blank: '指定なし' %>
+
+          <%= f.label :bear_id_eq, '送料負担' %>
+          <%= f.collection_select :bear_id_eq, Bear.all, :id, :name,  include_blank: '指定なし' %>
+
+          <%= f.label :day_id_eq, '発送までの日数' %>
+          <%= f.collection_select :day_id_eq, Day.all, :id, :name,  include_blank: '指定なし' %>
+
+          <%= f.label :price, '価格：' %>
+          <%= f.radio_button :price_lteq, '' %>
+          指定なし
+          <%= f.radio_button :price_lteq, '1000' %>
+          1000円以下
+          <%= f.radio_button :price_lteq, '2500' %>
+          2500円以下
+          <%= f.radio_button :price_lteq, '5000' %>
+          5000円以下
+          <br>
+        </div>
+      <% end %>
+
+      <%# ----------------------------------- %>
+      <%# <li><%= link_to 'ブランド', "#", class: "brand-list" </li> %>
     </ul>
+
     <ul class='lists-right'>
       <% if user_signed_in? %>
         <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
