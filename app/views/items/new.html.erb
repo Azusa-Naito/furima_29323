@@ -15,12 +15,13 @@
         出品画像
         <span class="indispensable">必須</span>
       </div>
-      <div id="image-list"></div>
       <div class="click-upload">
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :image, id:"item-image" %>
+        <%= f.file_field :images, name: 'item[images][]', id: 'item-image' %>
+        <div id="image-list" class="upload-image"> <%# ここに<input id="item_image_[番号]" name="item[images][]" type="file">が入る%>
+        </div>
       </div>
     </div>
     <%# /出品画像 %>

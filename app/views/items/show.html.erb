@@ -7,7 +7,9 @@
       <%= @item.title %>
     </h2>
     <div class='item-img-content'>
-      <%= image_tag @item.image ,class:"item-box-img" %>
+    <% @item.images.each do |image| %>
+      <%= image_tag image ,class:"item-box-img" %>
+    <% end %>
       <% if Order.exists?(item_id: @item.id) %>
         <div class='sold-out'>
           <span>Sold Out!!</span>
