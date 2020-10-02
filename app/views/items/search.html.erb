@@ -1,13 +1,12 @@
+<% breadcrumb :search_items %>
 <%= render "shared/header" %>
 <% if @results.present? %>
-  <% @results.each do |item| %>
-    <ul class='item-lists'>
+  <ul class='item-lists'>
+    <% @results.each do |item| %>
       <%= render partial: "shared/item", locals: {item: item} %>
-    </ul>
   <% end %>
 <% else %>
-  <ul class='item-lists'>
     <p>一致する商品がありません。条件を変えて検索してみよう！</p>
-  </ul>
 <% end %>
+    </ul>
 <%= render "shared/footer" %>
