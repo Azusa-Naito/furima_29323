@@ -31,3 +31,7 @@ ja:
         block_number: 番地
         phone_number: 電話番号
 
+ja:
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"

@@ -174,11 +174,28 @@
   margin-bottom: 2vh;
 }
 
+.comment-display{
+  border: lightblue solid 1px;
+  padding: 10px;
+  margin: 5px;
+}
+
+.comment-top{
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: gray;
+}
+
 .comment-flag {
   display: flex;
   justify-content: center;
 }
 
+.comment-bottom{
+  text-align: left;
+  font-size: 15px;
+}
 .comment-flag-icon {
   margin: 10px 5px 0 0;
 }

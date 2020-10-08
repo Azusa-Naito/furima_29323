@@ -38,7 +38,6 @@ Things you may want to cover:
 | birthday     | date       | null: false                    |
 
 ### Association
-
 - has_many :items
 - has_many :orders
 
@@ -56,11 +55,22 @@ Things you may want to cover:
 | days_id      | integer    | null: false                    |
 | user         | references | null: false, foreign_key: true |
 
-
 ### Association
-
 - belongs_to :user
 - has_one :order
+
+
+## comments テーブル
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| text         | text       | null: false                    |
+| user         | references | null: false, foreign_key: true |
+| item         | references | null: false, foreign_key: true |
+
+
+### Association
+- belongs_to :user
+- belongs_to :item
 
 
 ## addresses テーブル
@@ -75,7 +85,6 @@ Things you may want to cover:
 | order          | references | null: false, foreign_key: true |
 
 ### Association
-
 - belongs_to :order
 
 
@@ -86,7 +95,6 @@ Things you may want to cover:
 | item   | references | null: false, foreign_key: true |
 
 ### Association
-
 - belongs_to :user
 - belongs_to :item
 - has_one :address
