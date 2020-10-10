@@ -21,6 +21,7 @@ ja:
         bear_id: 配送料の負担
         from_id: 都道府県
         day_id: 配送目安日数
+ja:
   activemodel:
     attributes:
       order_address:
