@@ -1,5 +1,5 @@
 ja:
-  activerecord:
+  ActiveRecord:
     attributes:
       user:
         nickname: ニックネーム
@@ -22,7 +22,7 @@ ja:
         from_id: 都道府県
         day_id: 配送目安日数
 ja:
-  activemodel:
+  ActiveModel:
     attributes:
       order_address:
         token: クレジットカード情報
