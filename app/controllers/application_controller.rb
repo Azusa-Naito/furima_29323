@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   
   class MyLogger < Logger
-    include LoggerSilence
+    # include LoggerSilence
     include ActiveSupport::LoggerThreadSafeLevel
   end
   
